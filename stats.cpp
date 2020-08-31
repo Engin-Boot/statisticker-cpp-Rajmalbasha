@@ -2,7 +2,7 @@
 #include
 #include "stats.h"
 
-float average (const std::vector<float>& input,int count)
+float avg (const std::vector<float>& input,int count)
 {
   float sum =0;
     for (int i=0;i<count;i++)
@@ -12,28 +12,28 @@ float average (const std::vector<float>& input,int count)
     return sum/count;
 }
 
-float minimum (const std::vector<float>& input,int count)
+float min (const std::vector<float>& input,int count)
 {
   float min = input[0];
     for (int i=1;i<count;i++)
     {
-        if(count[i]<min)
+        if(input[i]<min)
         {
-            min= count[i];
+            min= input[i];
         }
     }
     return min;
 }
 
 
-float maximum (const std::vector<float>& input,int count)
+float max (const std::vector<float>& input,int count)
 {
   float max =input[0];
     for (int i=1;i<count;i++)
     {
-        if(count[i]>max)
+        if(input[i]>max)
         {
-            max = count[i];
+            max = input[i];
         }
     }
     return max;
@@ -46,7 +46,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& input) {
     int count = input.size();
     if (count>0)
     {
-        computedValues.avg=float avg(input,count);
+        computedValues.average=float avg(input,count);
         computedValues.min=float min(input,count);
         computedValues.max=float max (input,count);
         return computedValues;
