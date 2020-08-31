@@ -40,15 +40,15 @@ float max (const std::vector<float>& input,int count)
 }
 
 
-Stats Statistics::ComputeStatistics(const std::vector<float>& input) {
+Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& input) {
     
     struct Stats computedValues;
     int count = input.size();
     if (count>0)
     {
-        computedValues.average=float avg(input,count);
-        computedValues.min=float min(input,count);
-        computedValues.max=float max (input,count);
+        computedValues.average=avg(input,count);
+        computedValues.min=  min(input,count);
+        computedValues.max= max (input,count);
         return computedValues;
     }
     
