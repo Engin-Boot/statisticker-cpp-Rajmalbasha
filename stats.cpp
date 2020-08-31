@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-#include
 #include "stats.h"
 
 float avg (const std::vector<float>& input,int count)
