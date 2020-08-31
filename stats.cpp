@@ -43,13 +43,20 @@ Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& input)
     
     struct Stats computedValues;
     int count = input.size();
-    if (count>0)
+    if (count==0)
     {
+      computedValues.average = std::numeric_limits<float>::quiet_NaN();
+      computedValues.min = std::numeric_limits<float>::quiet_NaN();
+      computedValues.max = std::numeric_limits<float>::quiet_NaN();
+      return computedValues;
+    }
+  else
+  {
         computedValues.average=avg(input,count);
         computedValues.min=  min(input,count);
         computedValues.max= max (input,count);
         return computedValues;
-    }
+  }
     
 }
 
