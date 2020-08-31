@@ -1,7 +1,8 @@
 #include<bits/stdc++.h>
+#include
 #include "stats.h"
 
-float avg (const std::vector<float>& input,int count)
+float average (const std::vector<float>& input,int count)
 {
   float sum =0;
     for (int i=0;i<count;i++)
@@ -11,7 +12,7 @@ float avg (const std::vector<float>& input,int count)
     return sum/count;
 }
 
-float min (const std::vector<float>& input,int count)
+float minimum (const std::vector<float>& input,int count)
 {
   float min = input[0];
     for (int i=1;i<count;i++)
@@ -25,7 +26,7 @@ float min (const std::vector<float>& input,int count)
 }
 
 
-float avg (const std::vector<float>& input,int count)
+float maximum (const std::vector<float>& input,int count)
 {
   float max =input[0];
     for (int i=1;i<count;i++)
@@ -41,11 +42,11 @@ float avg (const std::vector<float>& input,int count)
 
 Stats Statistics::ComputeStatistics(const std::vector<float>& input) {
     
-    Stats computedValues;
+    struct Stats computedValues;
     int count = input.size();
     if (count>0)
     {
-    computedValues.avg=float avg(input,count);
+        computedValues.avg=float avg(input,count);
         computedValues.min=float min(input,count);
         computedValues.max=float max (input,count);
         return computedValues;
