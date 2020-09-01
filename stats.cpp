@@ -11,7 +11,7 @@ float avg (const std::vector<float>& input,int count)
     return sum/count;
 }
 
-float min (const std::vector<float>& input,int count)
+/*float min (const std::vector<float>& input,int count)
 {
   float min = input[0];
     for (int i=1;i<count;i++)
@@ -36,7 +36,7 @@ float max (const std::vector<float>& input,int count)
         }
     }
     return max;
-}
+}*/
 
 
 Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& input) {
@@ -53,8 +53,8 @@ Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& input)
   else
   {
         computedValues.average=avg(input,count);
-        computedValues.min=  min(input,count);
-        computedValues.max= max (input,count);
+        computedValues.min= *min_element(input.begin(),input.end());
+        computedValues.max= *max_element(input.begin(),input.end());
         return computedValues;
   }
     
