@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #include "stats.h"
 
-float avg (const std::vector<float>& input,int count)
+/*float avg (const std::vector<float>& input,int count)
 {
   float sum =0;
     for (int i=0;i<count;i++)
@@ -9,7 +9,7 @@ float avg (const std::vector<float>& input,int count)
         sum+=input[i];
     }
     return sum/count;
-}
+}*/
 
 /*float min (const std::vector<float>& input,int count)
 {
@@ -42,8 +42,8 @@ float max (const std::vector<float>& input,int count)
 Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& input) {
     
     struct Stats computedValues;
-    int count = input.size();
-    if (count==0)
+    int number_of_elements = input.size();
+    if (number_of_elements ==0)
     {
       computedValues.average = std::numeric_limits<float>::quiet_NaN();
       computedValues.min = std::numeric_limits<float>::quiet_NaN();
@@ -52,7 +52,7 @@ Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& input)
     }
   else
   {
-        computedValues.average=avg(input,count);
+        computedValues.average=accumulate(input.begin(),input.end(),0.0)/number_of_elements;
         computedValues.min= *min_element(input.begin(),input.end());
         computedValues.max= *max_element(input.begin(),input.end());
         return computedValues;
